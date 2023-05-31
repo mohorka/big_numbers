@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "scripts"
+version = "0.1.0"
+description = "Repository with two scripts: one generates binary with big numbers, second counts max, min and summary of bigs."
+authors = ["mohorka"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.24.3"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.12.0"
+black = "^23.3.0"
+flake8 = "^6.0.0"
+
+[tool.poetry.scripts]
+generate_big_numbers = "scripts.generate_big_number:main"
+get_statistic = "scripts.get_statistic:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
