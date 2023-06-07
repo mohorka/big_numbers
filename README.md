@@ -22,6 +22,9 @@ As you may have already figured out, `golang` solution is inside same sub-direct
 
 `go run main.go -input_file your_binary_file_with_big_ints`
 
+## Where is 3rd task?
+Please read `Task3.md` for short report.
+
 ## How to run 4th task?
 You need enviroment with `pyspark`. I used jupiter docker image, get it with:
 `docker pull jupyter/pyspark-notebook:latest`
