@@ -30,5 +30,8 @@ You need enviroment with `pyspark`. I used jupiter docker image, get it with:
 `docker pull jupyter/pyspark-notebook:latest`
 
 ## How to run 5th task?
-First of all, you need a data. Run `poetry install` and after some [tricks](https://www.kaggle.com/general/74235) run `kaggle datasets  download berkeleyearth/climate-change-earth-surface-temperature-data --unzip`. 
+First of all, you need a data. Run `poetry install` and after some [tricks](https://www.kaggle.com/general/74235) run 
+
+`kaggle datasets  download berkeleyearth/climate-change-earth-surface-temperature-data --unzip`. 
+
 Now you may discover `task5.ipynb` and `scripts` sub-directory.
