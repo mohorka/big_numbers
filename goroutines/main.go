@@ -1,14 +1,13 @@
 package main
 
 import (
-	"github.com/rs/zerolog/log"
-	"flag"
-	"os"
-	"sync"
-	"runtime"
 	"encoding/binary"
+	"flag"
+	"github.com/rs/zerolog/log"
+	"os"
+	"runtime"
+	"sync"
 )
-
 
 func getPrimeFactorsAmount(number uint32) uint64 {
 	amount := uint64(0)
@@ -28,16 +27,14 @@ func getPrimeFactorsAmount(number uint32) uint64 {
 	return amount
 }
 
-
-func factorizeWorker(sender chan uint32, reciever chan uint64, wg *sync.WaitGroup){
+func factorizeWorker(sender chan uint32, reciever chan uint64, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for number := range sender {
 		reciever <- getPrimeFactorsAmount(number)
 	}
 }
 
-
-func sumWorker(reciever chan uint64, summaryCh chan uint64, wg *sync.WaitGroup){
+func sumWorker(reciever chan uint64, summaryCh chan uint64, wg *sync.WaitGroup) {
 	defer wg.Done()
 	var subSummary uint64
 	for amountPrimeNumbers := range reciever {
@@ -46,11 +43,8 @@ func sumWorker(reciever chan uint64, summaryCh chan uint64, wg *sync.WaitGroup){
 	summaryCh <- subSummary
 }
 
-
-
-
 func main() {
-	var inputFile string 
+	var inputFile string
 	flag.StringVar(&inputFile, "input_file", "", "input binary file with big ints")
 	flag.Parse()
 
@@ -73,31 +67,31 @@ func main() {
 	sender := make(chan uint32, bufferSize)
 	reciever := make(chan uint64, bufferSize)
 	summaryCh := make(chan uint64, workersAmount)
-	
+
 	var factorizeWg sync.WaitGroup
 	var summaryWg sync.WaitGroup
 
 	for i := 0; i < workersAmount; i++ {
 		factorizeWg.Add(1)
-		go factorizeWorker(sender ,reciever, &factorizeWg)
+		go factorizeWorker(sender, reciever, &factorizeWg)
 	}
 
 	for i := 0; i < workersAmount; i++ {
 		summaryWg.Add(1)
 		go sumWorker(reciever, summaryCh, &summaryWg)
 	}
-	
+
 	for _, bigInt := range bigInts {
 		sender <- bigInt
 	}
 	close(sender)
 
-	go func(){
+	go func() {
 		factorizeWg.Wait()
 		close(reciever)
 	}()
 
-	go func(){
+	go func() {
 		summaryWg.Wait()
 		close(summaryCh)
 	}()
@@ -107,4 +101,4 @@ func main() {
 		summary += partialSum
 	}
 	log.Info().Msgf("Done! Amount of prime numbers for ints in %s: %v", inputFile, summary)
-} 
+}
