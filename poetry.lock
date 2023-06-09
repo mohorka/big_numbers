@@ -1267,6 +1267,21 @@ files = [
 tests = ["pytest"]
 
 [[package]]
+name = "pwlf"
+version = "2.2.1"
+description = "fit piecewise linear functions to data"
+optional = false
+python-versions = ">3.5"
+files = [
+    {file = "pwlf-2.2.1.tar.gz", hash = "sha256:8133145e2541e941f09dbd0955ce9c9bca623a554ac89631ff96405e7b341b25"},
+]
+
+[package.dependencies]
+numpy = ">=1.14.0"
+pyDOE = ">=0.3.8"
+scipy = ">=1.2.0"
+
+[[package]]
 name = "py4j"
 version = "0.10.9.7"
 description = "Enables Python programs to dynamically access arbitrary Java objects"
@@ -1298,6 +1313,20 @@ files = [
     {file = "pycparser-2.21-py2.py3-none-any.whl", hash = "sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9"},
     {file = "pycparser-2.21.tar.gz", hash = "sha256:e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"},
 ]
+
+[[package]]
+name = "pydoe"
+version = "0.3.8"
+description = "Design of experiments for Python"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pyDOE-0.3.8.zip", hash = "sha256:cbd6f14ae26d3c9f736013205f53ea1191add4567033c3ee77b7dd356566c4b6"},
+]
+
+[package.dependencies]
+numpy = "*"
+scipy = "*"
 
 [[package]]
 name = "pyflakes"
@@ -1844,4 +1873,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "b4b2c2254559080dbb325ee2039be760eed847e1cff67a63f4740a2c2dcb3754"
+content-hash = "c5359a5ff79fdba599ebfd4dc3a6712bd7a9b980bebd9266f6da2c2aa4e160e7"
