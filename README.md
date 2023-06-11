@@ -28,3 +28,19 @@ Please read `Task3.md` for short report.
 ## How to run 4th task?
 You need enviroment with `pyspark`. I used jupiter docker image, get it with:
 `docker pull jupyter/pyspark-notebook:latest`
+
+## How to run 5th task?
+First of all, you need a data. Run `poetry install` and after make some [tricks](https://www.kaggle.com/general/74235) 
+
+run `kaggle datasets  download berkeleyearth/climate-change-earth-surface-temperature-data --unzip`. 
+
+Now you may discover `task5.ipynb` and `scripts` sub-directory.
+
+`Attention`: results of geo sub-task is `img` sub-directory, they don't show up in the notebook, but you may re-run whole notebook to see them.
+
+Run `get_average_temperature -i input_file -c desired_city -y desired_year` to get average temperature for city in a given year.
+
+Run `pytest` to test main script functionality.
+
+Run `poetry build` to get a wheel.
+
