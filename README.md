@@ -35,3 +35,10 @@ First of all, you need a data. Run `poetry install` and after some [tricks](http
 `kaggle datasets  download berkeleyearth/climate-change-earth-surface-temperature-data --unzip`. 
 
 Now you may discover `task5.ipynb` and `scripts` sub-directory.
+
+Run `get_average_temperature -i input_file -c desired_city -y desired_year" to get average temperature for city in a given year.`
+
+Run `pytest` to test main script functionality.
+
+Run `poetry build` to get a wheel.
+

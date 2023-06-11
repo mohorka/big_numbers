@@ -24,6 +24,9 @@ isort = "^5.12.0"
 black = "^23.3.0"
 flake8 = "^6.0.0"
 
+[tool.poetry.group.test.dependencies]
+pytest = "^7.3.2"
+
 [tool.poetry.scripts]
 generate_big_numbers = "scripts.generate_big_number:main"
 get_statistic = "scripts.get_statistic:main"
