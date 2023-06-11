@@ -36,6 +36,8 @@ run `kaggle datasets  download berkeleyearth/climate-change-earth-surface-temper
 
 Now you may discover `task5.ipynb` and `scripts` sub-directory.
 
+`Attention`: results of geo sub-task is `img` sub-directory, they don't show up in the notebook, but you may re-run whole notebook to see them.
+
 Run `get_average_temperature -i input_file -c desired_city -y desired_year` to get average temperature for city in a given year.
 
 Run `pytest` to test main script functionality.
